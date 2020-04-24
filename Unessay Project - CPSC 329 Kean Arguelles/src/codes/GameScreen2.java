@@ -31,6 +31,7 @@ public class GameScreen2 extends Scene {
 	private Window chatWindow = new Window(10, 10, 750, 500, 680, 10, 60, 20, "chat.png", true);
 	private Window lockFileWindow = new Window(90, 50, 400, 300, 330, 10, 60, 20, "confirmKey.png", true);
 	private Window calcWindow = new Window(750, 10, 500, 600, 730, 40, 80, 40, "moduloCalc.png", false);
+	private Window vWindow = new Window(250, 50, 700, 600, 281, 522, 155, 30, "ch3Window.png", true);
 	private ArrayList<Label> chatLogs = new ArrayList<>();
 	private TextField gVal = new TextField();
 	private TextField xVal = new TextField();
@@ -80,6 +81,13 @@ public class GameScreen2 extends Scene {
 		root.getChildren().add(chatIcon);
 		root.getChildren().add(lockFile);
 		root.getChildren().add(calcWindow);
+		root.getChildren().add(vWindow);
+		root.getChildren().add(vWindow.getClose());
+		
+		vWindow.setOpen(true);
+		vWindow.getClose().setOnMouseClicked (e -> {
+			openOrClose(vWindow);
+		});
 
 		chatIcon.setOnMouseClicked(e -> {
 			openOrClose(chatWindow);
